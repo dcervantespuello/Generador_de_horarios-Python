@@ -1,7 +1,7 @@
 from py.cursos import arreglo_cursos
 
 
-def limpiar_dataframe(df):
+def dataframe_limpio(df):
     # Se quitan las filas con valor 'NULO' en columna 'Codigo_docente'
     df = df[df.Codigo_docente != 'NULO']
 
@@ -22,23 +22,17 @@ def limpiar_dataframe(df):
 
 
 def total_cursos(df):
-    # Conteo de cuantos cursos hay en total
     cursos = set(df.index.get_level_values(0))
-    print('Hay {} cursos en el segundo semestre del 2019\n'.format(len(cursos)))
+    return(cursos)
 
 
-# Se lee el dataframe
-#df = pd.read_csv('csv/dataframe.csv')
-
-
-#print('SECCIONES POR CURSO:\n')
-#semestre = 1
-#
-# cursos = set(df.index.get_level_values(0))
-# Numero de secciones por curso
-# for grupo in arreglo_cursos:
-#    print('Semestre {}:'.format(semestre))
-#    for curso in grupo:
-#        print('{}: {}'.format(curso, len(df.loc[curso, 'Nrc'])))
-#    print("")
-#    semestre += 1
+def contar_por_semestre(df):
+    numero_semestre = 1
+    suma_cursos = 0
+    for semestre in arreglo_cursos:
+        print('Semestre {}: {} cursos'.format(numero_semestre, len(semestre)))
+        for curso in semestre:
+            secciones = len(set(df.loc[curso, 'Nrc']))
+            print('{}: {}'.format(curso, secciones))
+        print("")
+        numero_semestre += 1
