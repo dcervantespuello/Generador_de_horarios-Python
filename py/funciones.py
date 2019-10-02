@@ -26,13 +26,20 @@ def total_cursos(df):
     return(cursos)
 
 
-def contar_por_semestre(df):
+def conteo_por_semestre(df):
     numero_semestre = 1
-    suma_cursos = 0
     for semestre in arreglo_cursos:
-        print('Semestre {}: {} cursos'.format(numero_semestre, len(semestre)))
+        imprimir_semestre(numero_semestre, len(semestre))
         for curso in semestre:
-            secciones = len(set(df.loc[curso, 'Nrc']))
-            print('{}: {}'.format(curso, secciones))
+            primer_nrc = list(set(df.loc[curso, 'Nrc']))[0]
+            grupos = len(set(df.loc[curso, 'Nrc']))
+            sesiones = len(df[df.Nrc == primer_nrc])
+            print('{}:'.format(curso))
+            print('Grupos: {}'.format(grupos))
+            print('Sesiones: {} por semana\n'.format(sesiones))
         print("")
         numero_semestre += 1
+
+
+def imprimir_semestre(numero_semestre, numero_cursos):
+    print('\nSemestre {}: {} cursos\n'.format(numero_semestre, numero_cursos))
