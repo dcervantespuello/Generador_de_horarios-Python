@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Result</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="t2-principal">Result</h1>
+        <h2 class="st2-principal">The efficiency analysis of the chosen account is summarized below:</h2>
+        <div class="row justify-content-center">
+            <div class="result">
+                {{ efectividad }}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="s-result">
+                Efficiency
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div>
+                <img src="{{ url_for('static', filename="formula.png")}}" class="imagen">
+            </div>
+        </div>
+        <div class="row justify-content-around imagen">
+            <p>Retweets: {{ retweetT }}</p>
+            <p>Likes: {{ likesT }}</p>
+            <p>Sample: {{ numTweet }} Tweets</p>
+            <p>Seguidores: {{ seguidores }}</p>
+        </div>
+    </div>
+</body>
+
+</html>

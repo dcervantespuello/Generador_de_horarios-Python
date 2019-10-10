@@ -1,3 +1,29 @@
+import pandas as pd
+
+
+def dataframe_limpio():
+    # Recibimos el archivo csv
+    df = pd.read_csv('csv/dataframe.csv')
+
+    # Se quitan las filas con valor 'NULO' en columna 'Codigo_docente'
+    df = df[df.Codigo_docente != 'NULO']
+
+    # Quitar filas con valor 0 en 'Capacidad', 'Disponibles' y 'Ocupados'
+    df = df[df[['Capacidad', 'Disponibles', 'Ocupados']].any(axis='columns')]
+
+    # Cambiar valores de columna 'Disponibles' a 0
+    df.Disponibles[df.Capacidad == 0] = 0
+
+    # Copiar valores de columna 'Ocupados' en columna 'Capacidad'
+    df.Capacidad[df.Capacidad == 0] = df.Ocupados
+
+    # Organizar los indices del dataframe
+    df = df.set_index(['Nombre_asignatura'])
+    df = df.sort_index()
+
+    return(df)
+
+
 def mostrarAgregadas(agregadas):
     if(len(agregadas) > 0):
         print("\nMaterias agregadas:")

@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Inicio</title>
 </head>
+
 <body>
-    Un mensaje desde mi html
+    <div class="container">
+        <h1 class="t-principal">GHC</h1>
+        <h2 class="st-principal">Generador de horarios de clase para estudiantes y profesionales de apoyo</h2>
+        <form method="post" action="{{ url_for('result') }}">
+            <div class="form-group">
+                <label for="nombre">Escriba el nombre de los cursos que necesite matricular:</label>
+                <input class="form-control form-control-lg" type='text' id="nombre" name="nombre" placeholder="@Ejemplo"></input>
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-primary boton">Generar</button>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>

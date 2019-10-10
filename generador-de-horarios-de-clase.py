@@ -204,7 +204,7 @@ sumaCreditos = 0
 while True:
     try:
         os.system('cls')
-        print("*****GENERADOR DE HORARIOS*****")
+        print("*****GENERADOR DE HORARIOS*****")  # Número 1
         mostrarAgregadas(agregadas)
         print("1.Agregar una materia")
         print("2.Generar horario")
