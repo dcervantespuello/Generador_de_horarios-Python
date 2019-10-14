@@ -1,12 +1,14 @@
 from flask import Flask, render_template
-from py.funciones import dataframe_limpio
+from py.funciones import dataframe_limpio, indexar_columnas
+
 app = Flask(__name__)
+df = dataframe_limpio()
+df2 = indexar_columnas(df)
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    df = dataframe_limpio()
-    return render_template('index.html', df=df)
+    return render_template('test.html', df2=df2)
 
 
 @app.route('/result', methods=['GET', 'POST'])

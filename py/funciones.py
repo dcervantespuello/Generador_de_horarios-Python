@@ -17,11 +17,16 @@ def dataframe_limpio():
     # Copiar valores de columna 'Ocupados' en columna 'Capacidad'
     df.Capacidad[df.Capacidad == 0] = df.Ocupados
 
-    # Organizar los indices del dataframe
-    df = df.set_index(['Nombre_asignatura'])
-    df = df.sort_index()
-
     return(df)
+
+
+def indexar_columnas(df):
+    df2 = df[['Nrc',
+              'Nombre_asignatura',
+              'Capacidad',
+              'Disponibles',
+              'Ocupados']]
+    print(df2)
 
 
 def mostrarAgregadas(agregadas):

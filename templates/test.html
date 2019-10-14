@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Scripts -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}">
+
+    </script>
+
+    <title>Test</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Títulos -->
+        <div class="row justify-content-center">
+            <div class="col">
+                <h1 class="t-principal">GHC</h1>
+                <h2 class="st-principal">Generador de horarios de clase para estudiantes y profesionales de apoyo</h2>
+            </div>
+        </div>
+        {% for x in df2 %}
+        {{ x }}
+        {% endfor %}
+    </div>
+</body>
+
+</html>
