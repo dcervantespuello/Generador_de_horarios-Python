@@ -26,7 +26,7 @@ def indexar_columnas(df):
               'Capacidad',
               'Disponibles',
               'Ocupados']]
-    print(df2)
+    return(df2)
 
 
 def mostrarAgregadas(agregadas):

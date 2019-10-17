@@ -37,26 +37,22 @@
                      <!-- ESTE BUSCADOR ESTÁ FUNCIONAL. BUSCA Y MUESTRA EN TIEMPO REAL LOS RESULTADOS ABAJO-->
                      <div class="form-group">
                          <label for="nombre">Escriba el nombre de los cursos que vaya a matricular:</label>
-                         <input class="form-control form-control-lg" type='text' id="nombre" name="nombre" placeholder="@Ejemplo"></input>
+                         <input class="form-control form-control-lg" type='text' id="nombre" name="nombre"></input>
                      </div>
                      <table class="table table-hover">
                          <thead>
                              <tr>
-                                 <th>NRC</th>
-                                 <th>Curso</th>
-                                 <th>Capacidad</th>
-                                 <th>Disponibles</th>
-                                 <th>Ocupados</th>
+                                 {% for columna in columnas %}
+                                 <th>{{ columna }}</th>
+                                 {% endfor %}
                              </tr>
                          </thead>
                          <tbody class="cursos">
-                             {% for curso in df %}
+                             {% for i in numero_datos %}
                              <tr>
-                                 <td>{{ curso['Nrc'] }}</td>
-                                 <td>{{ curso['Nombre_asignatura'] }}</td>
-                                 <td>{{ curso['Capa'] }}</td>
-                                 <td>{{ curso['Nrc'] }}</td>
-                                 <td>{{ curso['Nrc'] }}</td>
+                                 {% for j in numero_dato %}
+                                 <td>{{ datos[i][j] }}</td>
+                                 {% endfor %}
                              </tr>
                              {% endfor %}
                          </tbody>
